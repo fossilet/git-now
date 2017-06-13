@@ -15,7 +15,7 @@ cmd_default() {
 
   if [ $# -eq 0 ]; then
     git add -u
-    printf "${MESSAGE}\n\n%s" | git commit -F -
+    printf "${MESSAGE}\n\n%s" "`git diff --cached --stat`" | git commit -F -
   else
     local is_all=false
     local is_stat=false
